@@ -1,0 +1,17 @@
+GENERICS - Genéricos
+----------------------
+
+VARIANCE
+    Declaration-site variance - Variación del sitio de declaración
+
+TYPE PROJECTIONS
+    Use-site variance - Varianza del sitio de uso
+    Star-Projections - Proyecciones de estrellas
+
+GENERIC FUNCTIONS
+
+GENERIC CONSTRAINT
+    Upper bounds - Límites superiores
+        Where
+
+TYPE ERASURE - Tipo de borrado
