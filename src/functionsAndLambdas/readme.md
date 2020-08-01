@@ -1,7 +1,7 @@
-Functions
+# Functions
 ----------------
 
-Function declarations
+## Function declarations
 
 Function usage
     Parameters
