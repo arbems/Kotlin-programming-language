@@ -1,7 +1,7 @@
 Functions
 ----------------
 
-### Function declarations
+#### Function declarations
 
 #### Function usage
 * Parameters
@@ -32,6 +32,22 @@ Functions
 
 
 
+Inline Functions
+----------------
+
+#### noinline
+
+#### Non-local returns
+
+#### Reified type parameters
+
+#### Inline properties (since 1.1)
+
+#### Restrictions for public API inline functions
+
+
+
+
 Lambdas
 ----------------
 
@@ -53,20 +69,3 @@ Lambdas
 * Function literals with receiver
 
 #### Anonymous Functions
-
-
-
-
-
-Inline Functions
-----------------
-
-#### noinline
-
-#### Non-local returns
-
-#### Reified type parameters
-
-#### Inline properties (since 1.1)
-
-#### Restrictions for public API inline functions
