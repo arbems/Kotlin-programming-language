@@ -1,12 +1,12 @@
-# Kotlin-programming-language
+# Programando con lenguaje Kotlin
 
-#### [Basics](https://github.com/arbems/Kotlin-programming-language/tree/master/src/basics)
+#### [Lo esencial](https://github.com/arbems/Kotlin-programming-language/tree/master/src/basics)
 
-#### [Classes and objects](https://github.com/arbems/Kotlin-programming-language/tree/master/src/classAndObjects)
+#### [Clases y objetos](https://github.com/arbems/Kotlin-programming-language/tree/master/src/classAndObjects)
 
-#### [Functions and Lambdas](https://github.com/arbems/Kotlin-programming-language/tree/master/src/functionsAndLambdas)
+#### [Funciones y Lambdas](https://github.com/arbems/Kotlin-programming-language/tree/master/src/functionsAndLambdas)
 
-#### [Collections](https://github.com/arbems/Kotlin-programming-language/tree/master/src/collections)
+#### [Colecciones](https://github.com/arbems/Kotlin-programming-language/tree/master/src/collections)
 
-#### [Coroutines](https://github.com/arbems/Kotlin-programming-language/tree/master/src/coroutines)
+#### [Corrutinas](https://github.com/arbems/Kotlin-programming-language/tree/master/src/coroutines)
 
