@@ -1,7 +1,9 @@
-package basics.packages// Por defecto, se importan varios paquetes en cada archivo Kotlin:
+package basics.packages
 /**
  * Packages
  * */
+
+/** Por defecto, se importan varios paquetes en cada archivo Kotlin: */
 
 // kotlin.*
 // kotlin.annotation.*     API para las anotaciones
@@ -12,7 +14,7 @@ package basics.packages// Por defecto, se importan varios paquetes en cada archi
 // kotlin.sequences.*    Tipo de secuencia que representa colecciones evaluadas perezosamente. Funciones de nivel superior para instanciar secuencias y funciones de extensión para secuencias.
 // kotlin.text.*     Funciones para trabajar con texto y expresiones regulares.
 
-// Se importan paquetes adicionales según la plataforma de destino:
+/** Se importan paquetes adicionales según la plataforma de destino: */
 // JVM:
     // java.lang.*
     // kotlin.jvm.*    Funciones y anotaciones específicas de la plataforma Java.
@@ -21,13 +23,13 @@ package basics.packages// Por defecto, se importan varios paquetes en cada archi
 
 
 
-// Un archivo fuente puede comenzar con una declaración de paquete:
+/** Un archivo fuente puede comenzar con una declaración de paquete: */
 //package org.example
 
 //fun printMessage() { /* ... */ }
 //class Message { /* ... */ }
 
-// Import
+/** Importar paquetes */
 //import org.example.Message
 // o todos los contenidos accesibles de un ámbito (paquete, clase, objeto, etc.):
 //import org.example.*

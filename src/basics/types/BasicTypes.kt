@@ -1,9 +1,10 @@
 package basics.types
-/**
- * Basic types / Tipos básicos
- * */
 
 import kotlin.random.Random
+
+/**
+ * Basic types / Tipos básicos
+ */
 
 fun main(args: Array<String>) {
     numbers()
@@ -13,10 +14,11 @@ fun main(args: Array<String>) {
     strings()
 }
 
+/**
+ * Numbers
+ */
 fun numbers()
 {
-    /** Numbers */
-
     /** Tipos numericos */
     val oneByte: Byte = 1 // Byte
     val oneShort: Short = 1 // Short
@@ -45,7 +47,7 @@ fun numbers()
     /** Conversiones explícitas */
     val c: Int? = 1 // ClassAndObjects.A boxed Int (java.lang.Integer)
     // val b: Long? = c // error: conversión implícita (java.lang.Long)
-    // print(b == c) // Surprise! This prints "false" as Long's equals() checks whether the other is Long as well
+    // print(b == c) // Sorpresa! Esto imprime "false", Long's equals() comprueba si el otro también es Long
 
     val b: Byte = 1 // OK, los literales se verifican estáticamente
     // val i: Int = b // ERROR
@@ -57,6 +59,7 @@ fun numbers()
     val x = 5 / 2
     //println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
     println(x == 2)
+
     val y = 5 / 2.toDouble()
     println(y == 2.5)
 
@@ -79,9 +82,10 @@ fun numbers()
         throw IllegalArgumentException("Out of range")
 }
 
+/**
+ * Characters
+ */
 fun characters() {
-    /** Characters */
-
     // Los caracteres están representados por el tipo Char
     val c: Char = '1'
     // if (c == 1) { } error
@@ -90,9 +94,10 @@ fun characters() {
     val r = c.toInt() - '0'.toInt() // Explicit conversions to basics.types.numbers
 }
 
+/**
+ * Booleans
+ */
 fun booleans() {
-    /** Booleans */
-
     // Las operaciones incorporadas en booleanos || && !
     val a = Random.nextInt()
     val b = Random.nextInt()
@@ -100,9 +105,10 @@ fun booleans() {
     if (a >= 1 || b <= 99999 && c != 0) { }
 }
 
+/**
+ * Arrays
+ */
 fun arrays() {
-    /** Arrays */
-
     /** Array */
     // arrayOf
     val a: Array<Int> = arrayOf(1, 2, 3);
@@ -141,9 +147,10 @@ fun arrays() {
     for(value in a) { println("Contiene el valor $value") }
 }
 
+/**
+ * Strings
+ */
 fun strings() {
-    /** Strings */
-
     val str: String = "hello"
     for (char in str) {
         println(char)

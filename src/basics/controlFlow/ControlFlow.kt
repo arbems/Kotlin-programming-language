@@ -1,21 +1,23 @@
 package basics.controlFlow
-/**
- * Control flow / Control de flujos
- * */
 
 import java.lang.Integer.parseInt
 import kotlin.random.Random
 
-fun main(args: Array<String>) {
+/**
+ * Control flow / Control de flujos
+ */
+
+fun main() {
     ifExpressions()
     whenExpressions()
     loops()
     whileLoops()
 }
 
+/**
+ * Expresiones con If
+ */
 fun ifExpressions() {
-    /** If Expression */
-
     val a = Random.nextInt(0, 15)
     val b = 9
     var max = a
@@ -40,34 +42,35 @@ fun ifExpressions() {
     max = if (a > b) a else b
 }
 
+/**
+ * Expresiones con When
+ */
 fun whenExpressions() {
-    /** When Expression */
-
-    val x = Random.nextInt(1,10)
-    when (x) {
-        1 -> println("x == 1")
-        2 -> println("x == 2")
+    val a = Random.nextInt(1,10)
+    when (a) {
+        1 -> println("a == 1")
+        2 -> println("a == 2")
         else -> { // Note the block
-            println("x is neither 1 nor 2")
+            println("a is neither 1 nor 2")
         }
     }
 
-    when (x) {
-        0, 1 -> println("x == 0 or x == 1")
+    when (a) {
+        0, 1 -> println("a == 0 or a == 1")
         else -> println("otherwise")
     }
 
     val s = "1"
-    when (x) {
-        parseInt(s) -> println("s encodes x")
-        else -> println("s does not encode x")
+    when (a) {
+        parseInt(s) -> println("s encodes a")
+        else -> println("s does not encode a")
     }
 
     val validNumbers = arrayOf(1,2,3,4)
-    when (x) {
-        in 1..5 -> println("x is in the range")
-        in validNumbers -> println("x is valid")
-        !in 10..20 -> println("x is outside the range")
+    when (a) {
+        in 1..5 -> println("a is in the range")
+        in validNumbers -> println("a is valid")
+        !in 10..20 -> println("a is outside the range")
         else -> println("none of the above")
     }
 
@@ -79,9 +82,10 @@ fun hasPrefix(x: Any) = when(x) {
     else -> false
 }
 
+/**
+ * Bucles
+ */
 fun loops() {
-    /** For Loops */
-
     val collection = arrayOf(1,2,3)
     for (item in collection) println(item)
 
@@ -99,9 +103,10 @@ fun loops() {
     }
 }
 
+/**
+ * Bucles con While
+ */
 fun whileLoops() {
-    /** While Loops */
-
     var x: Int = Random.nextInt(0,10)
     while (x > 0) {
         x--
