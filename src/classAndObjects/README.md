@@ -73,9 +73,35 @@
 * Clases internas anónimas
 
 #### Clases de enumeración
-#### Objetos
+* Inicialización
+* Clases anónimas
+* Implementación de interfaces en clases Enum
+* Trabajar con constantes de enumeración
+
+#### Expresiones y declaraciones de objetos
+* Expresiones de objeto
+* Declaraciones de objeto
+* Objetos complementarios (Companion Objects)
+* Diferencia semántica entre expresiones y declaraciones de objetos
+
 #### Alias de tipo
 #### Clases en línea
-#### Delegación
-#### Propiedades delegadas
+* Miembros
+* Herencia
+* Representación
+* Clases en línea frente a alias de tipo
 
+#### Delegación
+* Delegación de propiedad
+* Implementación por delegación
+    * Anular un miembro de una interfaz implementada por delegación
+
+#### Propiedades delegadas
+* Delegados estándar
+    * Lazy
+    * Observable
+    * Almacenamiento de propiedades en un Map
+    * Propiedades locales delegadas (desde 1.1)
+    * Requisitos del delegado de propiedad
+        * Reglas de traducción
+        * Proporcionar un delegado (desde 1.1)
