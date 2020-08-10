@@ -1,4 +1,4 @@
-# Kotlin Programming Language
+# Kotlin-programming-language
 
 #### [Basics](https://github.com/arbems/Kotlin-programming-language/tree/master/src/basics)
 
