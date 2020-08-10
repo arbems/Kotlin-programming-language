@@ -1,71 +1,68 @@
-Functions
-----------------
+# Funciones
 
-#### Function declarations
+## Declaraciones de funciones
 
-#### Function usage
-* Parameters
-* Default arguments
-* Named arguments
-* Unit-returning functions
-* Single-expression functions
-* Explicit return types
-* Variable number of arguments (Varargs)
-* Infix notation
+#### Uso de funciones
+* Parámetros
+* Argumentos por defecto
+* Argumentos nombrados
+* Retorno de Unit en funciones
+* Funciones de expresión simple
+* Tipos de devolución explícitos
+* Número variable de argumentos (Varargs)
+* Notación infix
 
-#### Function scope
-* Local functions
-* Member functions
-* Extension functions
+#### Alcance de la función
+* Funciones locales
+* Funciones de miembros
+* Funciones de extensión
 
-#### Generic functions
+#### Funciones genéricas
 
-#### Inline functions
+#### Funciones Inline
 
-#### Extension functions
+#### Funciones de extensión
 
-#### Higher-order functions and lambdas
+#### Funciones de orden superior y lambdas
 
-#### Tail recursive functions
-
+#### Funciones recursivas de cola
 
 
 
 
-Inline Functions
-----------------
+
+## Funciones Inline
 
 #### noinline
 
-#### Non-local returns
+#### returns no local
 
-#### Reified type parameters
+#### Parámetros de tipo reificado
 
-#### Inline properties (since 1.1)
+#### Propiedades Inline (desde 1.1)
 
-#### Restrictions for public API inline functions
-
-
+#### Restricciones para funciones inline de API públicas
 
 
-Lambdas
-----------------
 
-#### Higher-Order Functions
 
-#### Function types
-* Instantiating a function type
-* Invoking a function type instance
-* Inline functions
+## Lambdas
 
-#### Lambda Expressions
-* Lambda expression syntax
-* Passing trailing lambdas
-* it: implicit name of a single parameter
-* Returning a value from a lambda expression
-* Underscore for unused variables (since 1.1)
-* Destructuring in lambdas (since 1.1)
-* Closures
-* Function literals with receiver
+#### Funciones de orden superior
 
-#### Anonymous Functions
+#### Tipos de funciones
+* Instanciar un tipo de función
+* Invocar una instancia de tipo de función
+* Funciones Inline
+
+#### Expresiones Lambda
+* Sintaxis de expresión lambda
+* Pasando lambdas finales
+* it: nombre implícito de un solo parámetro
+* Devolver un valor desde una expresión lambda
+* Subrayado para variables no utilizadas (desde 1.1)
+* Desestructuración en lambdas (desde 1.1)
+* Cierres
+* Funciones literales con receptor
+
+#### Funciones anónimas
