@@ -1,4 +1,4 @@
-package basics.types
+package basics.basicTypes
 
 import kotlin.random.Random
 
