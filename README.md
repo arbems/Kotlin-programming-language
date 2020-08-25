@@ -1,6 +1,6 @@
 # Programando con lenguaje Kotlin
 
-#### [Lo esencial](https://github.com/arbems/Kotlin-programming-language/tree/master/src/basics)
+#### [Básico](https://github.com/arbems/Kotlin-programming-language/tree/master/src/basics)
 
 #### [Clases y objetos](https://github.com/arbems/Kotlin-programming-language/tree/master/src/classAndObjects)
 
@@ -10,3 +10,4 @@
 
 #### [Corrutinas](https://github.com/arbems/Kotlin-programming-language/tree/master/src/coroutines)
 
+#### [Construcciones de lenguaje](https://kotlinlang.org/docs/reference/multi-declarations.html)

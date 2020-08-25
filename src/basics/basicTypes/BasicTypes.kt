@@ -3,7 +3,7 @@ package basics.basicTypes
 import kotlin.random.Random
 
 /**
- * Basic types / Tipos básicos
+ * Tipos básicos
  */
 
 fun main(args: Array<String>) {
@@ -15,11 +15,11 @@ fun main(args: Array<String>) {
 }
 
 /**
- * Numbers
+ * Números
  */
 fun numbers()
 {
-    /** Tipos numericos */
+    /** Tipos numéricos */
     val oneByte: Byte = 1 // Byte
     val oneShort: Short = 1 // Short
     val one = 1 // Int
@@ -98,7 +98,7 @@ fun characters() {
  * Booleans
  */
 fun booleans() {
-    // Las operaciones incorporadas en booleanos || && !
+    // Las operaciones incorporadas en booleanos || && !=
     val a = Random.nextInt()
     val b = Random.nextInt()
     val c = Random.nextInt()
@@ -121,7 +121,7 @@ fun arrays() {
     val b = Array(5) { i -> (i * i).toString() }
     b.forEach { println(it) }
 
-    // Las matrices en Kotlin son invariables
+    // Los Arrays en Kotlin son invariables
     var c = Array<Any>(5) { i -> (i * i).toString() }
     var d = Array<String>(3) { i -> (i * i).toString() }
     // c = d // error: tipo no coinciden

@@ -1,19 +1,29 @@
-# Kotlin-programming-language - Basic
+# Programando con lenguaje Kotlin - Básico
 
-## Control de flujos
+#### [**Tipos básicos**]()
 
-#### Expresiones con If
+* Numbers
+* Characters
+* Booleans
+* Arrays
+* Strings
 
-#### Expresiones con When
+#### [**Control de flujos**]()
 
-#### Bucles
+* Expresiones con **If**
+* Expresiones con **When**
+* Bucles
+* Bucles con **While**
 
-#### Bucles con While
+#### [**Returns y saltos**]()
 
-## Packages
+* Break
+* Continue
+* Returns
 
-#### Paquetes por defecto en cada archivo Kotlin
 
-#### Declaración de paquete
+#### [**Packages**]()
 
-#### Importar paquetes
+* Paquetes por defecto en cada archivo Kotlin
+* Declaración de paquete
+* Importar paquetes

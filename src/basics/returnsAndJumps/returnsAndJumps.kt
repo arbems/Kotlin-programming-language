@@ -3,7 +3,7 @@ package basics.returnsAndJumps
 import kotlin.random.Random
 
 /**
- * Retunrs and jumps / Devoluciones y saltos
+ * Returns y saltos
  * */
 
 /**
@@ -44,6 +44,12 @@ fun continueNext() {
     for (i in 1..100) {
         for (j in 1..100) {
             if (10 <= Random.nextInt(0, 15)) continue
+        }
+    }
+    // o el de la etiqueta marcada
+    loop@ for (i in 1..100) {
+        for (j in 1..100) {
+            if (10 <= Random.nextInt(0, 15)) continue@loop
         }
     }
 }
@@ -87,7 +93,7 @@ fun demo4() {
     println("hecho con funcion anonima")
 }
 fun demo5() {
-    run loop@{
+    run loop@ {
         listOf(1, 2, 3, 4, 5).forEach {
             if (it == 3) return@loop // retorno no local de la lambda pasada para ejecutar
             println(it) // print 1 2

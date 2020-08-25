@@ -4,7 +4,7 @@ import java.lang.Integer.parseInt
 import kotlin.random.Random
 
 /**
- * Control flow / Control de flujos
+ * Control de flujos
  */
 
 fun main() {
