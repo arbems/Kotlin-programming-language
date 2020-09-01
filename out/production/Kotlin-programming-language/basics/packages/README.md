@@ -1,7 +1,7 @@
 # Programando con lenguaje Kotlin - Packages
 
-#### Paquetes por defecto en cada archivo Kotlin
+#### Packages por defecto en cada archivo Kotlin
 
-#### Declaración de paquete
+#### Declaración de Package
 
-#### Importar paquetes
+#### Importar Packages
