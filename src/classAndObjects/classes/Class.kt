@@ -1,6 +1,6 @@
 package classAndObjects.classes
 /**
- * Classes / Constructors
+ * Clases
  */
 
 fun main(args: Array<String>) {
@@ -10,21 +10,28 @@ fun main(args: Array<String>) {
     val bicycle = Bicycle(1, "BH", 2.3)
 }
 
-/** Constructors */
-// Constructor primario
+/**
+ * Constructores y bloques inicializadores
+ * */
+/*
+ Constructor primario
+ */
 class Motorcycle (id: Int, color: String) {
 
-    // initializer blocks
-    // Los parámetros del constructor primario se pueden usar en los bloques inicializadores. El bloque de inicio siempre se llama después del constructor primario
+    // Los parámetros del constructor primario se pueden usar en inicializadores de propiedades declarados en el cuerpo de la clase
+    private val idProperty = id
+
+    // Bloque inicializador
+    // Los parámetros del constructor primario se pueden usar en los bloques inicializadores.
+    // El bloque de inicio siempre se llama después del constructor primario
     init {
         println("Color: $color")
     }
-
-    // Los parámetros también se pueden usar en inicializadores de propiedades declarados en el cuerpo de la clase
-    private val idProperty = id
 }
 
-// Constructores secundarios
+/*
+ Constructores secundarios
+ */
 class Bus {
     var brands: MutableList<String> = mutableListOf()
 
@@ -43,7 +50,9 @@ class Bus {
     }
 }
 
-// Constructor primario y secundario
+/*
+ Constructor primario y secundario
+ */
 class Bicycle(id: Int, brand: String) {
     var weightProperty: Double = 0.0
 
@@ -65,27 +74,35 @@ class Bicycle(id: Int, brand: String) {
     }
 }
 
-// Anotaciones o modificadores de visibilidad
-// Si el constructor tiene anotaciones o modificadores de visibilidad, se requiere la palabra clave del constructor y los modificadores van antes que ella.
+/*
+ Anotaciones o modificadores de visibilidad
+ */
+// Si el constructor tiene anotaciones o modificadores de visibilidad, se requiere la palabra clave del constructor.
 class Customer @Inject constructor(name: String) { /* ... */ }
 annotation class Inject
 
-// Delegar al constructor primario
+/*
+ Delegar al constructor primario
+ */
 // Si la clase tiene un constructor primario, cada constructor secundario necesita delegar al constructor primario, ya sea directa o indirectamente a través de otro(s) constructor(es) secundario(s).
-class Person(val name: String) {
+class Person(val name: String, val firstName: String) {
     var children: MutableList<Person> = mutableListOf()
-    constructor(name: String, parent: Person) : this(name) {
+    constructor(name: String, firstName: String, parent: Person) : this(name, firstName) {
         parent.children.add(this)
     }
 }
 
-// Constructor primario generado sin argumentos
+/*
+ Constructor primario generado sin argumentos
+ */
 // Si una clase no abstracta no declara ningún constructor (primario o secundario), tendrá un constructor primario generado sin argumentos.
 // La visibilidad del constructor será pública. Si no desea que su clase tenga un constructor público, debe declarar un constructor primario vacío con visibilidad no predeterminada
 class DontCreateMe private constructor () { /* ... */ }
 
 
-/** Classes */
+/**
+ * Classes
+ * */
 class A {
     init {
         println("Init block")
@@ -96,13 +113,15 @@ class A {
     }
 }
 
-// Las clases pueden contener:
-//
+/*
+ Las clases pueden contener:
+ */
 // Constructores y bloques inicializadores
-// Funciones
 // Propiedades
-// Clases anidadas e internas
 // Declaraciones de objeto
+// Funciones
+// Clases anidadas e internas
+
 class Hero public constructor(val id: Int) {
     var lastName = "Last name" // Propiedades
     var origin = Origin("Spain") // Declaraciones de objeto

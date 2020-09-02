@@ -1,13 +1,15 @@
 package classAndObjects.inheritance
 /**
- * Inheritance / Herencia
+ * Herencia
  */
 
 fun main(args: Array<String>) {
  val f = F("alberto", "moreno")
 }
 
-/** Superclass Any */
+/**
+ * Superclass Any
+ * */
 // Todas las clases en kotlin heredan de 'Any'
 class Teacher(name: String) {
     override fun equals(other: Any?): Boolean {
@@ -23,7 +25,9 @@ class Teacher(name: String) {
     }
 }
 
-/** open */
+/**
+ * open
+ * */
 // Por defecto en Kotlin las clases son finales no se pueden heredar, para heredar de una clase hay que indicarlo con open
 open class Base(id: Int) {
     public constructor(id: Int, name: String) : this(id) { /* ... */ }
@@ -36,8 +40,9 @@ class Derived2(id: Int): Base(id) {
     public constructor(id: Int, name: String, firstName: String) : this(id) { /* ... */ }
 }
 
-/** Overriding methods */
-// Sobre-escribiendo métodos
+/**
+ * Sobreescribiendo métodos
+ * */
 open class Shape {
     open fun draw() { /* ... */ }
     fun fill() { /* ... */ }
@@ -49,8 +54,9 @@ open class Rectangle() : Shape() {
     final override fun draw() { /* ... */ } // si se indica final ya no se puede sobreescribir en una clase que herede de esta
 }
 
-/** Overriding properties */
-// Sobre-escribiendo propiedades
+/**
+ * Sobreescribiendo propiedades
+ * */
 open class A {
     open val vertexCount: Int = 0
 }
@@ -60,9 +66,10 @@ class B : A() {
 // Puedes sobreescribir propiedad en constructor primario
 class C(override var vertexCount: Int) : A() { /* ... */ }
 
-/** Derived class initialization order */
-// Clase derivada y orden inicialización
-// Al diseñar una clase base, debe evitar el uso de miembros open en los constructores, inicializadores de propiedades y bloques de inicio .
+/**
+ * Clase derivada y orden inicialización
+ * */
+// Al diseñar una clase base, debe evitar el uso de miembros open en los constructores, inicializadores de propiedades y bloques de inicio.
 open class E(val name: String) {
 
     init { println("Inicializando base") }
@@ -77,8 +84,9 @@ class F(name: String, val lastName: String) : E(name.capitalize().also { println
     override val size: Int = (super.size + lastName.length).also { println("Inicializando tamaño en derivada: $it") }
 }
 
-/** Calling the superclass implementation */
-// Llamando a la implementación de superclase
+/**
+ * Llamando a la implementación de la superclase
+ * */
 // El código en una clase derivada puede llamar a sus funciones de superclase y a implementaciones de accesos de propiedad usando la palabra clave super
 open class Triangle {
     open fun draw() { println("Dibujando un rectángulo") }
@@ -105,8 +113,9 @@ class FilledTriangle : Triangle() {
 }
 
 
-/** Overriding rules */
-// Sobre-escribiendo reglas
+/**
+ * Sobreescribiendo reglas
+ * */
 open class Octagon {
     open fun draw() { /* ... */ }
 }
@@ -123,8 +132,9 @@ class Square() : Octagon(), Polygon {
     }
 }
 
-/** Abstract classes */
-// Clases abstractas
+/**
+ * Clases abstractas
+ * */
 // Una clase y algunos de sus miembros pueden ser declarados abstractos. Un miembro abstracto no tiene una implementación en su clase
 open class Vehicle {
     open fun draw() {}
@@ -133,7 +143,9 @@ abstract class Car : Vehicle() {
     abstract override fun draw()
 }
 
-/** Companion objects */
+/**
+ * Companion objects
+ * */
 // Si necesita escribir una función a la que se pueda llamar sin tener una instancia de clase pero necesita acceso a las partes internas de una clase,
 // puede escribirla como miembro de una declaración de objeto dentro de esa clase.
 // Aún más específicamente, si declara un objeto complementario dentro de su clase, puede acceder a sus miembros usando solo el nombre de la clase como calificador.

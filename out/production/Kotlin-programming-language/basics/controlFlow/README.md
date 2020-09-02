@@ -4,6 +4,6 @@
 
 #### Expresiones con When
 
-#### Bucles
+#### Bucles con for
 
 #### Bucles con While

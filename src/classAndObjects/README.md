@@ -1,19 +1,20 @@
 # Programando con lenguaje Kotlin - Clases y objetos
 
-#### Clases y herencia
+#### Clases
 * Clases
-    * Constructores
-        * Constructor secundario
-    * Creando instancias de una clase
-    * Miembros de clases
+    * Constructores y bloques inicializadores
+    
+#### Herencia
 * Herencia
-    * Sobre-escribiendo métodos
-    * Sobre-escribiendo propiedades
-    * Orden de inicialización de clase derivada
+    * Superclass Any
+    * open
+    * Sobreescribiendo métodos (override, final override)
+    * Sobreescribiendo propiedades
+    * Clase derivada y orden inicialización
     * Llamando a la implementación de la superclase
-    * Sobre-escribiendo reglas
+    * Sobreescribiendo reglas
 * Clases abstractas
-* Objetos companion
+* Companion objects
  
 #### Propiedades y campos
 * Declaranco propiedades
@@ -21,7 +22,7 @@
     * Campos de respaldo
     * Propiedades de respaldo
 * Constantes de tiempo de compilación
-* Propiedades y variables inicializadas tardíamente (Late-initialized)
+* Propiedades y variables de inicialización tardía (Late-initialized)
 * Comprobando si un lateinit var está inicializado (desde 12)
 * Sobre-escribiendo propiedades
 * Propiedades delegadas

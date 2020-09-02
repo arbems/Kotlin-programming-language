@@ -6,22 +6,22 @@ import kotlin.random.Random
  * Returns y saltos
  * */
 
-/**
- * return. Por defecto regresa de la función de cierre más cercana o de la función anónima.
+/*
  * break. Termina el bucle de cierre más cercano.
  * continue. Continúa con el siguiente paso del bucle de cierre más cercano.
+ * return. Por defecto regresa de la función de cierre más cercana o de la función anónima.
  */
 
 fun main() {
-    breakReturns()
-    continueNext()
-    returns()
+    `break`()
+    `continue`()
+    `return`()
 }
 
 /**
  * break
  */
-fun breakReturns() {
+fun `break`() {
     // break termina el bucle de cierre más cercano
     for (i in 1..100) {
         for (j in 1..100) {
@@ -39,8 +39,8 @@ fun breakReturns() {
 /**
  * continue
  */
-fun continueNext() {
-    // continue continúa con el siguiente paso del bucle de cierre más cercano.
+fun `continue`() {
+    // continúa con el siguiente paso del bucle de cierre más cercano.
     for (i in 1..100) {
         for (j in 1..100) {
             if (10 <= Random.nextInt(0, 15)) continue
@@ -57,7 +57,7 @@ fun continueNext() {
 /**
  * returns
  */
-fun returns() {
+fun `return`() {
     demo1()
     demo2()
     demo3()

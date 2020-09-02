@@ -12,7 +12,7 @@
 
 * Expresiones con **If**
 * Expresiones con **When**
-* Bucles
+* Bucles con **for**
 * Bucles con **While**
 
 #### [**Returns y saltos**](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/returnsAndJumps)

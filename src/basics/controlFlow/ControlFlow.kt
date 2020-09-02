@@ -83,7 +83,7 @@ fun hasPrefix(x: Any) = when(x) {
 }
 
 /**
- * Bucles
+ * Bucles con for
  */
 fun loops() {
     val collection = arrayOf(1,2,3)
