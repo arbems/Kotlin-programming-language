@@ -1,17 +1,18 @@
 package classAndObjects.inheritance
+
 /**
  * Herencia
  */
 
 fun main(args: Array<String>) {
- val f = F("alberto", "moreno")
+    val f = F("alberto", "moreno")
 }
 
 /**
  * Superclass Any
- * */
-// Todas las clases en kotlin heredan de 'Any'
-class Teacher(name: String) {
+ */
+/* Todas las clases en kotlin heredan de 'Any' por defecto */
+class Teacher(name: String) : Any() {
     override fun equals(other: Any?): Boolean {
         return super.equals(other)
     }
@@ -27,69 +28,100 @@ class Teacher(name: String) {
 
 /**
  * open
- * */
-// Por defecto en Kotlin las clases son finales no se pueden heredar, para heredar de una clase hay que indicarlo con open
+ */
+/* Por defecto en Kotlin las clases son finales no se pueden heredar, para heredar de una clase hay que indicarlo con open */
 open class Base(id: Int) {
-    public constructor(id: Int, name: String) : this(id) { /* ... */ }
+    public constructor(id: Int, name: String) : this(id) { /* ... */
+    }
 }
+
 // Si la clase derivada no tiene un constructor primario, cada constructor secundario debe inicializar el tipo base usando la palabra clave super
-class Derived: Base {
-    public constructor(id: Int, name: String, firstName: String) : super(id) { /* ... */ }
+class Derived : Base {
+    public constructor(id: Int, name: String, firstName: String) : super(id) {
+        /* ... */
+    }
 }
-class Derived2(id: Int): Base(id) {
-    public constructor(id: Int, name: String, firstName: String) : this(id) { /* ... */ }
+
+class Derived2(id: Int) : Base(id) {
+    public constructor(id: Int, name: String, firstName: String) : this(id) {
+        /* ... */
+    }
 }
 
 /**
  * Sobreescribiendo métodos
- * */
+ */
+/* Una subclase sobreescribe un método de su superclase cuando define un método con las mismas características (nombre, número y tipo de argumentos) que el método de la superclase.
+ * Para sobreescribir un método hay que indicar 'open' el método de la superclase. */
 open class Shape {
-    open fun draw() { /* ... */ }
-    fun fill() { /* ... */ }
+    open fun draw() {
+        /* ... */
+    }
+
+    fun fill() {
+        /* ... */
+    }
 }
+
 class Circle() : Shape() {
-    override fun draw() { /* ... */ }
+    override fun draw() {
+        /* ... */
+    }
 }
+
+/* si se indica final ya no se puede sobreescribir en una clase que herede de esta */
 open class Rectangle() : Shape() {
-    final override fun draw() { /* ... */ } // si se indica final ya no se puede sobreescribir en una clase que herede de esta
+    final override fun draw() {
+        /* ... */
+    }
 }
 
 /**
  * Sobreescribiendo propiedades
- * */
+ */
+/* Para sobreescribir una propiedad en una subclase hay que indicar **open** la propiedad de la superclase. */
 open class A {
     open val vertexCount: Int = 0
 }
+
 class B : A() {
     override var vertexCount = 4
 }
+
 // Puedes sobreescribir propiedad en constructor primario
 class C(override var vertexCount: Int) : A() { /* ... */ }
 
 /**
  * Clase derivada y orden inicialización
- * */
-// Al diseñar una clase base, debe evitar el uso de miembros open en los constructores, inicializadores de propiedades y bloques de inicio.
+ */
+/* Al diseñar una clase base, debe evitar el uso de miembros open en los constructores, inicializadores de propiedades y bloques de inicio. */
 open class E(val name: String) {
 
-    init { println("Inicializando base") }
+    init {
+        println("Inicializando base")
+    }
 
     open val size: Int = name.length.also { println("Inicializando tamaño en base: $it") }
 }
 
 class F(name: String, val lastName: String) : E(name.capitalize().also { println("Argumento para base: $it") }) {
 
-    init { println("Inicializando derivada") }
+    init {
+        println("Inicializando derivada")
+    }
 
     override val size: Int = (super.size + lastName.length).also { println("Inicializando tamaño en derivada: $it") }
 }
 
 /**
  * Llamando a la implementación de la superclase
- * */
-// El código en una clase derivada puede llamar a sus funciones de superclase y a implementaciones de accesos de propiedad usando la palabra clave super
+ */
+/* El código en una clase derivada puede llamar a sus funciones de superclase y a implementaciones de accesos de propiedad usando la palabra clave super */
 open class Triangle {
-    open fun draw() { println("Dibujando un rectángulo") }
+    open fun draw() {
+        println("Dibujando un rectángulo")
+    }
+
     val borderColor: String get() = "black"
 }
 
@@ -103,7 +135,9 @@ class FilledTriangle : Triangle() {
 
     // dentro de una clase interna, el acceso a la superclase de la clase externa se realiza con la palabra clave super calificada con el nombre de la clase externa super@Outer
     inner class Filler {
-        fun fill() { /* ... */ }
+        fun fill() { /* ... */
+        }
+
         fun drawAndFill() {
             super@FilledTriangle.draw() // Llama a la implementación de draw() en Triangle
             fill()
@@ -115,40 +149,24 @@ class FilledTriangle : Triangle() {
 
 /**
  * Sobreescribiendo reglas
- * */
+ */
 open class Octagon {
-    open fun draw() { /* ... */ }
+    open fun draw() {
+        /* ... */
+    }
 }
 
+/* Los miembros de la interfaz están 'open' por defecto */
 interface Polygon {
-    fun draw() { /* ... */ } // los miembros de la interfaz están 'open' por defecto
+    fun draw() {
+        /* ... */
+    }
 }
 
+/* El compilador requiere que se sobreescriba draw() */
 class Square() : Octagon(), Polygon {
-    // El compilador requiere que se sobre-escriba draw()
     override fun draw() {
         super<Octagon>.draw() // llama a Octagon.draw()
         super<Polygon>.draw() // llama a Polygon.draw()
     }
-}
-
-/**
- * Clases abstractas
- * */
-// Una clase y algunos de sus miembros pueden ser declarados abstractos. Un miembro abstracto no tiene una implementación en su clase
-open class Vehicle {
-    open fun draw() {}
-}
-abstract class Car : Vehicle() {
-    abstract override fun draw()
-}
-
-/**
- * Companion objects
- * */
-// Si necesita escribir una función a la que se pueda llamar sin tener una instancia de clase pero necesita acceso a las partes internas de una clase,
-// puede escribirla como miembro de una declaración de objeto dentro de esa clase.
-// Aún más específicamente, si declara un objeto complementario dentro de su clase, puede acceder a sus miembros usando solo el nombre de la clase como calificador.
-class MyClass {
-    companion object Named { }
 }
