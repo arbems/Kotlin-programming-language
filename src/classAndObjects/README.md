@@ -2,30 +2,28 @@
 
 ## Clases
 
-### Clases
-#### Constructores
-* Constructor principal
+* Constructores
+    * Constructor principal
+    * Constructor secundario
 * Bloques inicializadores
-* Constructor secundario        
-#### Creando instancias de clase
-#### Miembros de clase
-* Constructores y bloques inicializadores 
-* Funciones 
-* Propiedades 
-* Clases anidadas e internas 
-* Declaraciones de objeto
-### Clases abstractas
-### Companion objects
+* Creando instancias de clase
+* Miembros de clase
+    * Constructores y bloques inicializadores 
+    * Funciones 
+    * Propiedades 
+    * Clases anidadas e internas 
+    * Declaraciones de objeto
+* Clases abstractas
+* Companion objects
     
 ## Herencia
-
-    * Superclass `Any`
-    * `open`
-    * Sobreescribiendo métodos (`override`, `final override`)
-    * Sobreescribiendo propiedades
-    * Orden de inicialización de clases derivadas
-    * Llamando a la implementación de la superclase (`super`)
-    * Sobreescribiendo reglas
+* Superclass `Any`
+* `open`
+* Sobreescribiendo métodos (`override`, `final override`)
+* Sobreescribiendo propiedades
+* Orden de inicialización de clases derivadas
+* Llamando a la implementación de la superclase (`super`)
+* Sobreescribiendo reglas
  
 ## Propiedades y campos
 * Declarando propiedades
