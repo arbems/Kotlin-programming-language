@@ -1,23 +1,24 @@
 # Programando con lenguaje Kotlin - Clases y objetos
 
+## Clases
+
 ### Clases
-* Clases
-    * Constructores
-        * Constructor principal
-        * Bloques inicializadores
-        * Constructor secundario        
-    * Creando instancias de clase
-    * Miembros de clase
-        * Constructores y bloques inicializadores 
-        * Funciones 
-        * Propiedades 
-        * Clases anidadas e internas 
-        * Declaraciones de objeto
-* Clases abstractas
-* Companion objects
+#### Constructores
+* Constructor principal
+* Bloques inicializadores
+* Constructor secundario        
+#### Creando instancias de clase
+#### Miembros de clase
+* Constructores y bloques inicializadores 
+* Funciones 
+* Propiedades 
+* Clases anidadas e internas 
+* Declaraciones de objeto
+### Clases abstractas
+### Companion objects
     
-### Herencia
-* Herencia
+## Herencia
+
     * Superclass `Any`
     * `open`
     * Sobreescribiendo métodos (`override`, `final override`)
@@ -26,7 +27,7 @@
     * Llamando a la implementación de la superclase (`super`)
     * Sobreescribiendo reglas
  
-### Propiedades y campos
+## Propiedades y campos
 * Declarando propiedades
 * Getters y Setters
     * Campos de respaldo
@@ -37,7 +38,7 @@
 * Sobreescribiendo propiedades
 * Propiedades delegadas
 
-### Interfaces
+## Interfaces
 * Implementación de interfaces
 * Propiedades en interfaces
 * Herencia de interfaces
@@ -46,14 +47,14 @@
     * *SAM* conversiones
     * *Functional interfaces* vs. *type aliases*
 
-### Modificadores de visibilidad
+## Modificadores de visibilidad
 * Packages
 * Clases e interfaces
     * Constructores
     * Declaraciones locales
 * Módulos
 
-### Extensiones
+## Extensiones
 * Funciones de extensión
 * Las extensiones se resuelven estáticamente
 * Receptor anulable
@@ -62,15 +63,15 @@
 * Alcance de extensiones
 * Declarar extensiones como miembros
 
-### Clase de datos (data class)
+## Clase de datos (data class)
 * Propiedades declaradas en el cuerpo de la clase
 * Proceso de copiar
 * Clases de datos y declaraciones de desestructuración
 * Clases de datos estándar
 
-### Clases Selladas
+## Clases Selladas
 
-### Genéricos
+## Genéricos
 * *Variance*
     * Variación del sitio de declaración
 * Proyecciones de tipo
@@ -81,37 +82,37 @@
     * Límites superiores
 * Tipo de borrado
    
-### Clases anidadas e internas
+## Clases anidadas e internas
 * Clases anidadas
 * Clases internas (`inner`)
 * Clases internas anónimas
 
-### Clases de enumeración
+## Clases de enumeración
 * Inicialización
 * Clases anónimas
 * Implementación de interfaces en clases de enumeración
 * Trabajar con constantes de enumeración
 
-### Expresiones y declaraciones de objetos
+## Expresiones y declaraciones de objetos
 * Expresiones de objeto
 * Declaraciones de objeto
     * Companion Objects
 * Diferencia semántica entre expresiones y declaraciones de objetos
 
-### Alias de tipo (typealias)
+## Alias de tipo (typealias)
 
-### Clases en línea (inline class)
+## Clases en línea (inline class)
 * Miembros
 * Herencia
 * Representación
 * *Inline classes* vs. *type aliases*
 
-### Delegación
+## Delegación
 * Delegación de propiedad
 * Implementación por delegación
     * Anular un miembro de una interfaz implementada por delegación
 
-### Propiedades delegadas
+## Propiedades delegadas
 * Delegados estándar
     * *Lazy*
     * *Observable*
