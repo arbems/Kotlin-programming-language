@@ -1,6 +1,6 @@
 # Programando con lenguaje Kotlin - Clases y objetos
 
-## Clases
+## Clases 
 
 * Constructores
     * Constructor principal
