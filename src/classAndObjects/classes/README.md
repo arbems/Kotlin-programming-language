@@ -64,12 +64,25 @@ Si a una clase anidada le anteponemos el modificador `inner` la transformamos en
 
 ## Orden ejecución
 
+Primero se ejecuta el constructor principal.
+
+Los bloques inicializadores e inicializadores de propiedades se ejecuta antes del cuerpo del constructor secundario.
+
+Una clase puede tener uno o más bloques de inicialización ejecutándose en serie. 
+
 ## Creando instancias de clase
 
 Kotlin no tiene una palabra clave `new`.
 
 ## Clases abstractas
 
+Palabra reservada `abstract`.
+
+Las clases abstractas no pueden ser instanciadas. Su finalidad es utilizarlas como plantilla común para que otras clases la extiendan.
+
+Las clases abstractas puede contener propiedades y funciones abstractas. Cualquier clase que extienda de clases abstractas debera implementar todos los métodos y variables abstractas de las misma.
+
+Para la herencia no es necesario la palabra `open` porque las clase abstracta ya lo tiene por defecto.
 
 ## Companion objects
 

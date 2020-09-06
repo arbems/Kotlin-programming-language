@@ -5,7 +5,7 @@ package classAndObjects.classes
  */
 
 fun main() {
-    val v1 = Demo14(1, "")
+
 }
 
 /** Miembros de clase */
@@ -19,7 +19,7 @@ fun main() {
     Declaraciones de objeto
  */
 
-class Demo(private var v1: String = "") { /* constructor principal */
+class Demo(private var v1: String = "default value") { /* constructor principal */
 
     /* Propiedades y variables */
     val v2: String = ""
@@ -154,10 +154,10 @@ class Demo13(val v1: String, val v2: String) {
  *  Orden de ejecución
  */
 /* Primero se ejecuta el constructor principal.
-   Después los bloque inicializadores, los bloques inicializadores e inicializadores de propiedades se ejecuta antes del cuerpo del constructor secundario.
+   Los bloques inicializadores e inicializadores de propiedades se ejecuta antes del cuerpo del constructor secundario.
    Una clase puede tener uno o más bloques de inicialización ejecutándose en serie. */
 class Demo14(v1: Int, v2: String) {
-    var v3: Double = 0.0
+    var v3: Double = 2.0
 
     val p1 = "Primera propiedad: $v1".also(::println)
 
@@ -172,7 +172,7 @@ class Demo14(v1: Int, v2: String) {
 
     val p2 = "Segunda propiedad: ${v2.length}".also(::println)
 
-    init { //
+    init {
         println("Bloque inicio 2, v1: $v1 v2: $v2 v3: $v3") // v3 vacío
     }
 }
@@ -181,18 +181,29 @@ class Demo14(v1: Int, v2: String) {
 /**
  * Creando instancias de clase
  */
+val v1 = Demo14(1, "alberto", 3.0)
 
 
 /**
  * Clases abstractas
  */
-// Una clase y algunos de sus miembros pueden ser declarados abstractos. Un miembro abstracto no tiene una implementación en su clase
+/* Las clases abstractas no pueden ser instanciadas. Su finalidad es utilizarlas como plantilla común para que otras clases la extiendan. */
 open class Demo15 {
-    open fun draw() {}
+    open fun function01() {}
 }
-
+/* Las clases abstractas puede contener propiedades y funciones abstractas. */
 abstract class Demo16 : Demo15() {
-    abstract override fun draw()
+    abstract val v1: String
+    abstract val v2: Int
+    abstract val v3: Boolean
+
+    abstract override fun function01()
+}
+/* Cualquier clase que extienda de clases abstractas debera implementar todos los métodos y variables abstractas de las misma. */
+class Demo17(override val v1: String, override val v2: Int, override val v3: Boolean): Demo16() {
+    override fun function01() {
+        TODO("Not yet implemented")
+    }
 }
 
 /**
@@ -201,6 +212,6 @@ abstract class Demo16 : Demo15() {
 // Si necesita escribir una función a la que se pueda llamar sin tener una instancia de clase pero necesita acceso a las partes internas de una clase,
 // puede escribirla como miembro d  e una declaración de objeto dentro de esa clase.
 // Aún más específicamente, si declara un objeto complementario dentro de su clase, puede acceder a sus miembros usando solo el nombre de la clase como calificador.
-class Demo17 {
+class Demo18 {
     companion object Named {}
 }

@@ -10,6 +10,7 @@
     * Propiedades 
     * Clases anidadas e internas 
     * Declaraciones de objeto
+* Orden ejecución
 * Creando instancias de clase
 * Clases abstractas
 * Companion objects
