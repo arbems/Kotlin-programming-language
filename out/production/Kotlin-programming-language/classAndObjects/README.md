@@ -1,6 +1,6 @@
 # Programando con lenguaje Kotlin - Clases y objetos
 
-## Clases 
+## [Clases](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/classAndObjects/classes) 
 
 * Miembros de clase
     * Constructores y bloques inicializadores 
@@ -18,11 +18,11 @@
 ## Herencia
 * Superclass `Any`
 * `open`
-* Sobreescribiendo métodos (`override`, `final override`)
-* Sobreescribiendo propiedades
-* Orden de inicialización de clases derivadas
+* Sobrescribiendo métodos (`override`, `final override`)
+* Sobrescribiendo propiedades
+* Clase derivada y orden inicialización
 * Llamando a la implementación de la superclase (`super`)
-* Sobreescribiendo reglas
+* Sobrescribiendo reglas
  
 ## Propiedades y campos
 * Declarando propiedades

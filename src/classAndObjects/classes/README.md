@@ -54,13 +54,27 @@ Una clase puede tener uno o más bloques de inicialización ejecutándose en ser
 
 ### Funciones
 
+Las funciones también llamadas métodos, no es más que un conjunto de instrucciones que realizan una determindad tarea y la podemos invocar mediante su nombre.
+
+[Ver más sobre Funciones](https://github.com/arbems/Kotlin-programming-language/tree/master/src/functionsAndLambdas)
+
 ### Propiedades
+
+En Kotlin, no existe en concepto de campo tal como lo conoces; en su lugar, emplea el concepto de *propiedades*. Algo maravilloso es que los getters y setters para estas propiedades son autogenerados para nosotros por el compilador Kotlin. 
+
+Por supuesto podemos definir nuestros propios métodos gets y sets que sobrescriben a los que están por defectos o inferidos por el compilador de Kotlin.
+
+[Ver más sobre Propiedades](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/classAndObjects/propertiesAndFields)
 
 ### Clases anidadas e internas
 
 Si a una clase anidada le anteponemos el modificador `inner` la transformamos en interna, con lo que conseguimos que la clase pueda acceder a todos los miembros de la clase externa.
 
+[Ver más sobre Clases anidadas](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/classAndObjects/nestedClasses)
+
 ### Declaración de objeto
+
+Declara un objeto especificando su nombre, su tipo y, opcionalmente, una expresión que defina su valor inicial.
 
 ## Orden ejecución
 
@@ -86,7 +100,14 @@ Para la herencia no es necesario la palabra `open` porque las clase abstracta ya
 
 ## Companion objects
 
+Si necesita que una función o propiedad esté vinculada a una clase en lugar de a instancias de ella, puede declararla dentro de un **Companion object**.
 
+Una clase solo puede tener un *Companion object* y los objetos complementarios no se pueden anidar.
+
+*Companion object* es un singleton, y se puede acceder a sus miembros directamente a través del nombre de la clase que lo contiene (aunque también puede insertar el nombre del *Companion object* si desea ser explícito sobre el acceso).
+Con el englobamiento que hacemos con el Companion Object es más que suficiente para englobar todos nuestros métodos y propiedades estáticas de una sola vez.
+
+Podemos omitir el nombre del Companion Object de la declaración.
 
 ## Attribution
 

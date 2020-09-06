@@ -4,15 +4,14 @@ package classAndObjects.inheritance
  * Herencia
  */
 
-fun main(args: Array<String>) {
-    val f = F("alberto", "moreno")
-}
+fun main() {}
 
 /**
  * Superclass Any
  */
+
 /* Todas las clases en kotlin heredan de 'Any' por defecto */
-class Teacher(name: String) : Any() {
+class Demo : Any() {
     override fun equals(other: Any?): Boolean {
         return super.equals(other)
     }
@@ -29,73 +28,87 @@ class Teacher(name: String) : Any() {
 /**
  * open
  */
+
 /* Por defecto en Kotlin las clases son finales no se pueden heredar, para heredar de una clase hay que indicarlo con open */
-open class Base(id: Int) {
-    public constructor(id: Int, name: String) : this(id) { /* ... */
-    }
-}
-
-// Si la clase derivada no tiene un constructor primario, cada constructor secundario debe inicializar el tipo base usando la palabra clave super
-class Derived : Base {
-    public constructor(id: Int, name: String, firstName: String) : super(id) {
+open class Base(p1: Int) {
+    public constructor(p1: Int, p2: String) : this(p1) {
         /* ... */
     }
 }
 
-class Derived2(id: Int) : Base(id) {
-    public constructor(id: Int, name: String, firstName: String) : this(id) {
+/* Si la clase derivada no tiene un constructor primario, cada constructor secundario debe inicializar el tipo base usando la palabra clave super */
+class Derived01 : Base {
+    public constructor(p1: Int, p2: String, p3: String) : super(p1) {
         /* ... */
     }
 }
 
-/**
- * Sobreescribiendo métodos
- */
-/* Una subclase sobreescribe un método de su superclase cuando define un método con las mismas características (nombre, número y tipo de argumentos) que el método de la superclase.
- * Para sobreescribir un método hay que indicar 'open' el método de la superclase. */
-open class Shape {
-    open fun draw() {
-        /* ... */
-    }
-
-    fun fill() {
-        /* ... */
-    }
-}
-
-class Circle() : Shape() {
-    override fun draw() {
-        /* ... */
-    }
-}
-
-/* si se indica final ya no se puede sobreescribir en una clase que herede de esta */
-open class Rectangle() : Shape() {
-    final override fun draw() {
+class Derived02(p1: Int) : Base(p1) {
+    public constructor(p1: Int, p2: String, p3: String) : this(p1) {
         /* ... */
     }
 }
 
 /**
- * Sobreescribiendo propiedades
+ * Sobrescribiendo métodos
  */
-/* Para sobreescribir una propiedad en una subclase hay que indicar **open** la propiedad de la superclase. */
-open class A {
+
+/* Una subclase sobreescribe un método de su super clase cuando define un método con las mismas características (nombre, número y tipo de argumentos) que el método de la super clase.
+   Para sobrescribir un método hay que indicar 'open' el método de la super clase. */
+open class Demo01 {
+    open fun function01() {
+        /* ... */
+    }
+
+    fun function02() {
+        /* ... */
+    }
+}
+
+class Demo02 : Demo01() {
+    override fun function01() {
+        /* ... */
+    }
+
+    // override fun function02() {}  Error! es final y no puede ser sobrescrito
+}
+
+/* si se indica final ya no se puede sobrescribir en una clase que herede de esta */
+open class Demo03 : Demo01() {
+    final override fun function01() {
+        /* ... */
+    }
+}
+
+/* Si se indica **final override** ya no se puede sobrescribir en una clase que extienda de esta. */
+class Demo04 : Demo03() {
+    // override fun function01() {}  Error! es final y no puede ser sobrescrito
+}
+
+
+/**
+ * Sobrescribiendo propiedades
+ */
+
+/* Para sobrescribir una propiedad en una subclase hay que indicar **open** la propiedad de la super clase.
+   También puede anular una propiedad val con una propiedad var, pero no al revés. */
+open class Demo05 {
     open val vertexCount: Int = 0
 }
 
-class B : A() {
+class Demo06 : Demo05() {
     override var vertexCount = 4
 }
 
-// Puedes sobreescribir propiedad en constructor primario
-class C(override var vertexCount: Int) : A() { /* ... */ }
+/* Puedes sobrescribir propiedad en constructor primario */
+class Demo07(override var vertexCount: Int) : Demo05() { /* ... */ }
 
 /**
  * Clase derivada y orden inicialización
  */
+
 /* Al diseñar una clase base, debe evitar el uso de miembros open en los constructores, inicializadores de propiedades y bloques de inicio. */
-open class E(val name: String) {
+open class Base01(val name: String) {
 
     init {
         println("Inicializando base")
@@ -104,7 +117,7 @@ open class E(val name: String) {
     open val size: Int = name.length.also { println("Inicializando tamaño en base: $it") }
 }
 
-class F(name: String, val lastName: String) : E(name.capitalize().also { println("Argumento para base: $it") }) {
+class Demo08(name: String, val lastName: String) : Base01(name.capitalize().also { println("Argumento para base: $it") }) {
 
     init {
         println("Inicializando derivada")
@@ -114,59 +127,59 @@ class F(name: String, val lastName: String) : E(name.capitalize().also { println
 }
 
 /**
- * Llamando a la implementación de la superclase
+ * Llamando a la implementación de la super clase
  */
-/* El código en una clase derivada puede llamar a sus funciones de superclase y a implementaciones de accesos de propiedad usando la palabra clave super */
-open class Triangle {
-    open fun draw() {
-        println("Dibujando un rectángulo")
+
+/* El código en una clase derivada puede llamar a sus funciones de super clase y a implementaciones de accesos de propiedad usando la palabra clave super */
+open class Demo09 {
+    open fun function01() {
+        println("print function01 super clase")
     }
 
-    val borderColor: String get() = "black"
+    val p1: String get() = "p1 super clase"
 }
 
-class FilledTriangle : Triangle() {
-    override fun draw() {
-        super.draw()
-        println("Llenando el rectángulo")
+class Demo10 : Demo09() {
+    override fun function01() {
+        super.function01()
     }
 
-    val fillColor: String get() = super.borderColor
+    val p2: String get() = super.p1
 
-    // dentro de una clase interna, el acceso a la superclase de la clase externa se realiza con la palabra clave super calificada con el nombre de la clase externa super@Outer
-    inner class Filler {
-        fun fill() { /* ... */
+    /* dentro de una clase interna, el acceso a la super clase de la clase externa se realiza con la palabra clave super calificada con el nombre de la clase externa super@Outer */
+    inner class Demo11 {
+        private fun function01() { /* ... */
         }
 
-        fun drawAndFill() {
-            super@FilledTriangle.draw() // Llama a la implementación de draw() en Triangle
-            fill()
-            println("Drawn a filled triangle with color ${super@FilledTriangle.borderColor}") // Llama a la implementación de borderColor en Triangle
+        fun function02() {
+            super@Demo10.function01()
+            function01()
+            println("Drawn a filled triangle with color ${super@Demo10.p1}") // Llama a la implementación de borderColor en Triangle
         }
     }
 }
 
 
 /**
- * Sobreescribiendo reglas
+ * Sobrescribiendo reglas
  */
-open class Octagon {
+open class Demo12 {
     open fun draw() {
         /* ... */
     }
 }
 
 /* Los miembros de la interfaz están 'open' por defecto */
-interface Polygon {
+interface Interface01 {
     fun draw() {
         /* ... */
     }
 }
 
 /* El compilador requiere que se sobreescriba draw() */
-class Square() : Octagon(), Polygon {
+class Demo13 : Demo12(), Interface01 {
     override fun draw() {
-        super<Octagon>.draw() // llama a Octagon.draw()
-        super<Polygon>.draw() // llama a Polygon.draw()
+        super<Demo12>.draw() // llama a class.draw()
+        super<Interface01>.draw() // llama a interface.draw()
     }
 }
