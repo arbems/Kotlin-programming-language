@@ -7,7 +7,7 @@ package classAndObjects.classes
 fun main() { }
 
 /**
- * Miembros de clase
+ * Miembros de clase 
  */
 
 /*
