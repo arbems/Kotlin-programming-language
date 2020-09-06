@@ -1,63 +1,74 @@
 # Programando con lenguaje Kotlin - Clases y objetos
 
-#### Clases y herencia
-* Clases
-    * Constructores
+## Clases 
+
+* Miembros de clase
+    * Constructores y bloques inicializadores 
+        * Constructor principal
         * Constructor secundario
-    * Creando instancias de una clase
-    * Miembros de clases
-* Herencia
-    * Sobre-escribiendo métodos
-    * Sobre-escribiendo propiedades
-    * Orden de inicialización de clase derivada
-    * Llamando a la implementación de la superclase
-    * Sobre-escribiendo reglas
+    * Funciones 
+    * Propiedades 
+    * Clases anidadas e internas 
+    * Declaraciones de objeto
+* Creando instancias de clase
 * Clases abstractas
-* Objetos companion
+* Companion objects
+    
+## Herencia
+* Superclass `Any`
+* `open`
+* Sobreescribiendo métodos (`override`, `final override`)
+* Sobreescribiendo propiedades
+* Orden de inicialización de clases derivadas
+* Llamando a la implementación de la superclase (`super`)
+* Sobreescribiendo reglas
  
-#### Propiedades y campos
-* Declaranco propiedades
-    * Getters y Setters
+## Propiedades y campos
+* Declarando propiedades
+* Getters y Setters
     * Campos de respaldo
     * Propiedades de respaldo
 * Constantes de tiempo de compilación
-* Propiedades y variables inicializadas tardíamente (Late-initialized)
-* Comprobando si un lateinit var está inicializado (desde 12)
-* Sobre-escribiendo propiedades
+* Propiedades y variables de inicialización tardía (`lateinit var`)
+* Comprobando si un `lateinit var` está inicializado *(desde 1.2)*
+* Sobreescribiendo propiedades
 * Propiedades delegadas
 
-#### Interfaces
+## Interfaces
 * Implementación de interfaces
 * Propiedades en interfaces
 * Herencia de interfaces
-* Resolviendo conflictos al sobre-escribir
+* Resolviendo conflictos al sobreescribir
+* Interfaz funcional o método abstracto único (SAM)
+    * *SAM* conversiones
+    * *Functional interfaces* vs. *type aliases*
 
-#### Modificadores de visibilidad
+## Modificadores de visibilidad
 * Packages
 * Clases e interfaces
     * Constructores
     * Declaraciones locales
 * Módulos
 
-#### Extensiones
-* Funciones de extension
+## Extensiones
+* Funciones de extensión
 * Las extensiones se resuelven estáticamente
 * Receptor anulable
 * Propiedades de extensión
-* Extensiones de objetos complementarios
+* Extensiones de *Companion object*
 * Alcance de extensiones
 * Declarar extensiones como miembros
 
-#### Clases de datos
+## Clase de datos (data class)
 * Propiedades declaradas en el cuerpo de la clase
 * Proceso de copiar
 * Clases de datos y declaraciones de desestructuración
 * Clases de datos estándar
 
-#### Clases Selladas
+## Clases Selladas
 
-#### Genéricos
-* Variance
+## Genéricos
+* *Variance*
     * Variación del sitio de declaración
 * Proyecciones de tipo
     * Variación del sitio de uso: proyecciones de tipo
@@ -67,41 +78,50 @@
     * Límites superiores
 * Tipo de borrado
    
-#### Clases anidadas e internas
+## Clases anidadas e internas
 * Clases anidadas
-* Clases internas
+* Clases internas (`inner`)
 * Clases internas anónimas
 
-#### Clases de enumeración
+## Clases de enumeración
 * Inicialización
 * Clases anónimas
-* Implementación de interfaces en clases Enum
+* Implementación de interfaces en clases de enumeración
 * Trabajar con constantes de enumeración
 
-#### Expresiones y declaraciones de objetos
+## Expresiones y declaraciones de objetos
 * Expresiones de objeto
 * Declaraciones de objeto
-* Objetos complementarios (Companion Objects)
+    * Companion Objects
 * Diferencia semántica entre expresiones y declaraciones de objetos
 
-#### Alias de tipo
-#### Clases en línea
+## Alias de tipo (typealias)
+
+## Clases en línea (inline class)
 * Miembros
 * Herencia
 * Representación
-* Clases en línea frente a alias de tipo
+* *Inline classes* vs. *type aliases*
 
-#### Delegación
+## Delegación
 * Delegación de propiedad
 * Implementación por delegación
     * Anular un miembro de una interfaz implementada por delegación
 
-#### Propiedades delegadas
+## Propiedades delegadas
 * Delegados estándar
-    * Lazy
-    * Observable
-    * Almacenamiento de propiedades en un Map
-    * Propiedades locales delegadas (desde 1.1)
-    * Requisitos del delegado de propiedad
+    * *Lazy*
+    * *Observable*
+    * Delegar a otra propiedad
+    * Almacenamiento de propiedades en un *Map*
+    * Propiedades delegadas locales
+    * Requisitos de delegado de propiedad
         * Reglas de traducción
-        * Proporcionar un delegado (desde 1.1)
+        * Proporcionar un delegado
+
+
+
+
+## Attribution
+
+This code was created by [arbems](https://github.com/arbems) in 2020.

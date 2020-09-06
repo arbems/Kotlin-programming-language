@@ -4,25 +4,27 @@ package classAndObjects.classes
  * Clases
  */
 
-fun main() { }
+fun main() {
+    val v1 = Demo14(1, "")
+}
 
-/**
- * Miembros de clase 
- */
+/** Miembros de clase */
 
 /*
-    Constructores y bloques inicializadores
+    Constructores
+    Bloques inicializadores
     Funciones
     Propiedades
     Clases anidadas e internas
     Declaraciones de objeto
  */
-class Aaa(private var variable: String = "") { // constructor principal
 
-    // Propiedades y variables
-    val variable1: String = ""
+class Demo(private var v1: String = "") { /* constructor principal */
 
-    var propiedad: String = ""
+    /* Propiedades y variables */
+    val v2: String = ""
+
+    var p1: String = ""
         get() {
             return field.capitalize()
         }
@@ -30,80 +32,89 @@ class Aaa(private var variable: String = "") { // constructor principal
             field = value.trim()
         }
 
-    // Declaración de objeto
+    /* constructores secundarios */
+    constructor(v1: String, v2: String) : this(v1) {
+        //...
+    }
+
+    constructor(v1: String, v2: String, v3: String) : this(v1) {
+        //...
+    }
+
+    /* Declaración de objeto */
     val obj = object {
         var x: Int = 0
         var y: Int = 0
     }
 
-    // bloque inicializador
+    /* bloques inicializadores */
     init {
-        variable = "text"
+        v1 = "text"
     }
 
-    // constructores secundarios
-    constructor(variable: String, variable2: String) : this(variable) {
-        //...
-    }
-
-    constructor(variable: String, variable2: String, variable3: String) : this(variable) {
-        //...
-    }
-
-    // bloque inicializador
     init {
         //...
     }
 
-    // Funciones
+    /* Funciones */
     fun function01(value: String) {
-        variable = value
+        v1 = value
     }
 
-    fun function02() = variable.toUpperCase()
+    fun function02() = v1.toUpperCase()
 
 
     // Clase anidada
     class Anidada {
-        // fun funcion() = propiedad // error
+        // fun funcion() = p1 // error
     }
 
     // Clase interna
     inner class Interna {
-        fun function() = propiedad
+        fun function() = p1
     }
 }
+
+
+/** Constructores y bloques inicializadores */
 
 /**
- * Constructores y bloques inicializadores
+ * Constructor principal
  */
 
-/* 
-    Constructor principal 
-*/
-class Aac(id: Int, color: String) {
-    private val idProperty = id
+class Demo01(v1: String, val v2: String, private var v3: Int = 0) {
 
     init {
-        println("Color: $color")
+        println("Bloque de inicio se ejecuta después del constructor principal")
     }
 }
 
-/* Si el constructor principal no tiene anotaciones ni modificadores de visibilidad, se puede omitir la palabra clave `constructor`. */
-class Aba constructor(firstName: String) { /*...*/ }
-class Abb (firstName: String) { /*...*/ }
-class Abc private constructor(firstName: String) { /*...*/ }
-class Abd @Inject constructor(firstName: String) { /*...*/ }
-class Abe @Inject public constructor(firstName: String) { /*...*/ }
+/* Si el constructor principal tiene anotaciones o modificadores de visibilidad, hay que añadir la palabra clave `constructor`. */
+class Demo02 constructor(v1: String) { /*...*/ }
+class Demo03 (v1: String) { /*...*/ }
+class Demo04 private constructor(v1: String) { /*...*/ }
+class Demo05 @Inject constructor(v1: String) { /*...*/ }
+class Demo06 @Inject public constructor(v1: String) { /*...*/ }
+annotation class Inject
 
 /* Las propiedades declaradas en el constructor primario pueden ser mutables `var` o de solo lectura `val` */
-class Acc(val firstName: String, val lastName: String, var age: Int) { /*...*/ }
+class Demo07(val v1: String, val v2: String, var v3: Int) { /*...*/ }
+
+/* Si todos los parámetros del constructor principal tienen valores predeterminados, el compilador generará un constructor sin parámetros adicional que utilizará los valores predeterminados */
+class Demo08(val v1: String = "", val v2: String = "")
+
+/* Constructor primario generado sin argumentos, si una clase no abstracta no declara ningún constructor (primario o secundario), tendrá un constructor primario generado sin argumentos. */
+class Demo09
+
+/* La visibilidad del constructor será pública. Si no desea que su clase tenga un constructor público, debe declarar un constructor primario vacío con visibilidad no predeterminada. */
+class Demo10 private constructor() { /* ... */ }
 
 
-/* 
-    Constructores secundarios 
+/**
+ * Constructores secundarios
  */
-class Add {
+
+class Demo11 {
     var list: MutableList<String> = mutableListOf()
 
     constructor(brand: String) {
@@ -122,126 +133,65 @@ class Add {
 }
 
 /* Si la clase tiene un constructor primario, cada constructor secundario necesita delegar en el constructor primario. */
-class Ada(val name: String) {
-    var children = mutableListOf<Ada>()
-    constructor(name: String, parent: Ada) : this(name) {
-        parent.children.add(this)
+class Demo12(val v1: String) {
+    var list = mutableListOf<Demo12>()
+    constructor(v1: String, parent: Demo12) : this(v1) {
+        parent.list.add(this)
     }
 }
 
-/*
-    Constructor primario y secundario
- */
-/* Los bloques inicializadores e inicializadores de propiedades se ejecuta antes del cuerpo del constructor secundario */
-class Aee(id: Int, brand: String) {
-    var weightProperty: Double = 0.0
+/* Delegar al constructor primario */
+// Si la clase tiene un constructor primario, cada constructor secundario necesita delegar al constructor primario, ya sea directa o indirectamente a través de otro(s) constructor(es) secundario(s).
+class Demo13(val v1: String, val v2: String) {
+    var list: MutableList<Demo13> = mutableListOf()
 
-    val firstProperty = "Primera propiedad: $id".also(::println)
+    constructor(v1: String, v2: String, parent: Demo13) : this(v1, v2) {
+        parent.list.add(this)
+    }
+}
+
+/**
+ *  Orden de ejecución
+ */
+/* Primero se ejecuta el constructor principal.
+   Después los bloque inicializadores, los bloques inicializadores e inicializadores de propiedades se ejecuta antes del cuerpo del constructor secundario.
+   Una clase puede tener uno o más bloques de inicialización ejecutándose en serie. */
+class Demo14(v1: Int, v2: String) {
+    var v3: Double = 0.0
+
+    val p1 = "Primera propiedad: $v1".also(::println)
 
     init {
-        println("Bloque inicio 1, Id: $id Brand: $brand Weight: $weightProperty") // weightProperty vacío
+        println("Bloque inicio 1, v1: $v1 v2: $v2 v3: $v3") // v3 vacío
     }
 
-    constructor(id: Int, brand: String, weight: Double) : this(id, brand) {
-        weightProperty = weight
-        println("Constructor secundario, Id: $id Brand: $brand Weight: $weightProperty")
+    constructor(v1: Int, v2: String, v3: Double) : this(v1, v2) {
+        this.v3 = v3
+        println("Constructor secundario, v1: $v1 v2: $v2 v3: ${this.v3}")
     }
 
-    val secondProperty = "Segunda propiedad: ${brand.length}".also(::println)
+    val p2 = "Segunda propiedad: ${v2.length}".also(::println)
 
-    init { // Una clase puede tener uno o más bloques de inicialización ejecutándose en serie
-        println("Bloque inicio 2, Id: $id Brand: $brand Weight: $weightProperty") // weightProperty vacío
-    }
-}
-
-/* Si una clase no abstracta no declara ningún constructor (primario o secundario), tendrá un constructor primario generado sin argumentos */
-class Aff private constructor () { /*...*/ }
-
-/* Si todos los parámetros del constructor principal tienen valores predeterminados, el compilador generará un constructor sin parámetros adicional que utilizará los valores predeterminados */
-class Agg(val customerName: String = "")
-
-/*
- Anotaciones o modificadores de visibilidad
- */
-// Si el constructor tiene anotaciones o modificadores de visibilidad, se requiere la palabra clave del constructor.
-class Customer @Inject constructor(name: String) { /* ... */ }
-annotation class Inject
-
-/*
- Delegar al constructor primario
- */
-// Si la clase tiene un constructor primario, cada constructor secundario necesita delegar al constructor primario, ya sea directa o indirectamente a través de otro(s) constructor(es) secundario(s).
-class Person(val name: String, val firstName: String) {
-    var children: MutableList<Person> = mutableListOf()
-
-    constructor(name: String, firstName: String, parent: Person) : this(name, firstName) {
-        parent.children.add(this)
+    init { //
+        println("Bloque inicio 2, v1: $v1 v2: $v2 v3: $v3") // v3 vacío
     }
 }
-
-/*
- Constructor primario generado sin argumentos
- */
-// Si una clase no abstracta no declara ningún constructor (primario o secundario), tendrá un constructor primario generado sin argumentos.
-// La visibilidad del constructor será pública. Si no desea que su clase tenga un constructor público, debe declarar un constructor primario vacío con visibilidad no predeterminada
-class DontCreateMe private constructor() { /* ... */ }
 
 
 /**
- * Classes
+ * Creando instancias de clase
  */
-class A {
-    init {
-        println("Init block")
-    }
 
-    constructor(i: Int) {
-        println("Constructor")
-    }
-}
-
-/*
- Las clases pueden contener:
- */
-// Constructores y bloques inicializadores
-// Propiedades
-// Declaraciones de objeto
-// Funciones
-// Clases anidadas e internas
-
-class Hero public constructor(val id: Int) {
-    var lastName = "Last name" // Propiedades
-    var origin = Origin("Spain") // Declaraciones de objeto
-
-    init {
-        println("Init block")
-    }
-
-    constructor(id: Int, name: String) : this(id) {
-
-    }
-
-    constructor(id: Int, name: String, power: String) : this(id) {
-
-    }
-
-    class Origin(name: String) {} // Clases anidadas e internas
-
-    fun ChangeOrigin(origin: Origin) { // Funciones
-        this.origin = origin
-    }
-
-}
 
 /**
  * Clases abstractas
  */
 // Una clase y algunos de sus miembros pueden ser declarados abstractos. Un miembro abstracto no tiene una implementación en su clase
-open class Vehicle {
+open class Demo15 {
     open fun draw() {}
 }
 
-abstract class Car : Vehicle() {
+abstract class Demo16 : Demo15() {
     abstract override fun draw()
 }
 
@@ -251,6 +201,6 @@ abstract class Car : Vehicle() {
 // Si necesita escribir una función a la que se pueda llamar sin tener una instancia de clase pero necesita acceso a las partes internas de una clase,
 // puede escribirla como miembro d  e una declaración de objeto dentro de esa clase.
 // Aún más específicamente, si declara un objeto complementario dentro de su clase, puede acceder a sus miembros usando solo el nombre de la clase como calificador.
-class MyClass {
+class Demo17 {
     companion object Named {}
 }

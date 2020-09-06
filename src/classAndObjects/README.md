@@ -2,17 +2,15 @@
 
 ## Clases 
 
-* Constructores
-    * Constructor principal
-    * Constructor secundario
-* Bloques inicializadores
-* Creando instancias de clase
 * Miembros de clase
     * Constructores y bloques inicializadores 
+        * Constructor principal
+        * Constructor secundario
     * Funciones 
     * Propiedades 
     * Clases anidadas e internas 
     * Declaraciones de objeto
+* Creando instancias de clase
 * Clases abstractas
 * Companion objects
     
