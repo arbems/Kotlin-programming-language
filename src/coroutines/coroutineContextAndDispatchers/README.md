@@ -7,7 +7,7 @@ Las corrutinas siempre se ejecutan en algún *contexto* representado por un valo
 Todos los constructores de corrutinas, como *launch* y *async*, aceptan un parámetro opcional de *CoroutineContext* que se puede utilizar para especificar explícitamente el [CoroutineDispatcher](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/index.html) para la nueva corrutina y otros elementos de contexto como el [Job](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/index.html) de la corrutina.
 
 El **Dispatcher** de corrutina determina qué hilo o hilos utiliza la correspondiente corrutina para su ejecución.
-Puede limitar la ejecución de corrutinas a un subproceso específico, enviarlo a un grupo de subprocesos o dejar que se ejecute *unconfined*.
+Puede limitar la ejecución de corrutinas a un hilo específico, enviarlo a un grupo de hilos o dejar que se ejecute *unconfined*.
 
 <img src="https://raw.githubusercontent.com/arbems/Kotlin-Programming-Language/master/src/coroutines/coroutineContextAndDispatchers/0001.png" witdh="600"/>
 
@@ -20,6 +20,12 @@ Object [Dispatchers](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 * **Dispatchers.Main**: *CoroutineDispatcher* que se limita al subproceso principal que opera con objetos de IU. Por lo general, estos *Dispatchers* son de un solo subproceso.
 
 * **Dispatchers.Unconfined**: *CoroutineDispatcher* que inicia una corrutina en el hilo del llamador, pero solo hasta el primer punto de suspensión. Después de la suspensión, reanuda la corrutina en el hilo que está totalmente determinada por la función de suspensión que se invocó. Es apropiado para corrutinas que no consumen tiempo de CPU ni actualizan ningún dato compartido (como la interfaz de usuario) confinado a un hilo específico. *Dispatchers.Unconfined* no debe usarse en código general.
+
+Elegir el **Dispatcher** incorrecto puede reducir o anular la efectividad de la corrutina, a tener en cuenta para elegir *Dispatcher*:
+
+* Si el código interactúa con los elementos de la interfaz de usuario, *Dispatchers.Main* es apropiado.
+* Si el código es intensivo en CPU. Es decir, el código realiza cálculos (CPU), *Dispatchers.Default* es apropiado ya que está respaldado por un grupo de subprocesos con tantos subprocesos como núcleos de CPU.
+* El código es intensivo en IO. Es decir, el código se comunica a través de la red / archivo (IO). *Dispatchers.IO* es apropiado.
 
 [CoroutineContext](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/) es un conjunto indexado de instancias de [Element](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/-element/). Un conjunto indexado es una mezcla entre un set y un map. Cada *Element* de este conjunto tiene una [Key](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/-key.html).
 
@@ -35,6 +41,9 @@ Object [Dispatchers](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 Podemos combinar elementos de un contexto con los elementos de otro contexto gracias al operador `plus`, devolviendo un nuevo contexto que contiene los elementos combinados.
 
 ## Unconfined vs confined dispatcher
+
+???
+
 ## Depuración coroutines y threads
 ## Depuración con IDEA
 ## Depuración usando logging
