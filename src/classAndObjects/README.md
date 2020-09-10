@@ -15,7 +15,7 @@
 * Clases abstractas
 * Companion objects
     
-## Herencia
+## [Herencia](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/classAndObjects/inheritance)
 * Superclass `Any`
 * `open`
 * Sobrescribiendo métodos (`override`, `final override`)
@@ -32,7 +32,7 @@
 * Constantes de tiempo de compilación
 * Propiedades y variables de inicialización tardía (`lateinit var`)
 * Comprobando si un `lateinit var` está inicializado *(desde 1.2)*
-* Sobreescribiendo propiedades
+* Sobrescribiendo propiedades
 * Propiedades delegadas
 
 ## Interfaces

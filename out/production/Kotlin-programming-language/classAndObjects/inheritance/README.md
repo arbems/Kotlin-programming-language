@@ -28,16 +28,22 @@ También puede anular una propiedad val con una propiedad var, pero no al revés
 
 ## Clase derivada y orden inicialización
 
+En el momento de la ejecución del constructor de la clase base, las propiedades declaradas o sobrescritas en la clase derivada aún no se han inicializado. 
+Si alguna de esas propiedades se usa en la lógica de inicialización de la clase base (ya sea directa o indirectamente, a través de otra implementación de miembro open), puede provocar un comportamiento incorrecto o una falla en el tiempo de ejecución.
+
 Al diseñar una clase base, debe evitar el uso de miembros **open** en los constructores, inicializadores de propiedades y bloques de inicio.
 
 ## Llamando a la implementación de la super clase (super)
 
 El código en una clase derivada puede llamar a sus funciones de super clase y a implementaciones de accesos de propiedad usando la palabra clave **super**
 
+Dentro de una clase interna, el acceso a la super clase de la clase externa se realiza con la palabra clave super calificada con el nombre de la clase externa **super@Outer**.
+
 ## Sobrescribiendo reglas
 
-En Kotlin, la herencia está regulada por la siguiente regla: si una clase hereda múltiples implementaciones del mismo miembro de sus super clases inmediatas, debe anular este miembro y proporcionar su propia implementación (tal vez, usando una de las heredadas). 
-Para denotar el supertipo del que se toma la implementación heredada, usamos supercalificado por el nombre del supertipo entre paréntesis angulares, por ejemplo `super<Base>`.
+En Kotlin, la herencia está regulada por la siguiente regla: 
+* si una clase hereda múltiples implementaciones del mismo miembro de sus super clases inmediatas, debe anular este miembro y proporcionar su propia implementación (tal vez, usando una de las heredadas). 
+* Para denotar el supertipo del que se toma la implementación heredada, usamos supercalificado por el nombre del supertipo entre paréntesis angulares, por ejemplo `super<Base>`.
 
 ## Attribution
 
