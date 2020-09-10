@@ -9,6 +9,8 @@ Todos los constructores de corrutinas, como *launch* y *async*, aceptan un pará
 El **Dispatcher** de corrutina determina qué hilo o hilos utiliza la correspondiente corrutina para su ejecución.
 Puede limitar la ejecución de corrutinas a un subproceso específico, enviarlo a un grupo de subprocesos o dejar que se ejecute *unconfined*.
 
+<img src="https://raw.githubusercontent.com/arbems/Kotlin-Programming-Language/master/src/coroutines/coroutineContextAndDispatchers/0001.png" witdh="600"/>
+
 Object [Dispatchers](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/index.html) agrupa varias implementaciones de *CoroutineDispatcher*:
 
 * **Dispatchers.Default**: *CoroutineDispatcher* por defecto que utilizan todos los constructores estándar como launch, async, etc. si no se especifica un dispatcher ni ningún otro *ContinuationInterceptor* en su contexto. Utiliza un grupo común de subprocesos en segundo plano compartidos. Ésta es una opción adecuada para corrutinas informáticas intensivas que consumen recursos de la CPU, como cálculos, algoritmos, etc.
@@ -18,8 +20,6 @@ Object [Dispatchers](https://kotlin.github.io/kotlinx.coroutines/kotlinx-corouti
 * **Dispatchers.Main**: *CoroutineDispatcher* que se limita al subproceso principal que opera con objetos de IU. Por lo general, estos *Dispatchers* son de un solo subproceso.
 
 * **Dispatchers.Unconfined**: *CoroutineDispatcher* que inicia una corrutina en el hilo del llamador, pero solo hasta el primer punto de suspensión. Después de la suspensión, reanuda la corrutina en el hilo que está totalmente determinada por la función de suspensión que se invocó. Es apropiado para corrutinas que no consumen tiempo de CPU ni actualizan ningún dato compartido (como la interfaz de usuario) confinado a un hilo específico. *Dispatchers.Unconfined* no debe usarse en código general.
-
-
 
 [CoroutineContext](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/) es un conjunto indexado de instancias de [Element](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/-element/). Un conjunto indexado es una mezcla entre un set y un map. Cada *Element* de este conjunto tiene una [Key](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/-key.html).
 
