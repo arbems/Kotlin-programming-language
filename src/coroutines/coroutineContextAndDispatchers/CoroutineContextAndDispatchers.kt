@@ -1,27 +1,32 @@
 package coroutines.coroutineContextAndDispatchers
 
 import kotlinx.coroutines.*
-import kotlin.coroutines.coroutineContext
+import kotlin.coroutines.ContinuationInterceptor
+import kotlin.system.measureTimeMillis
+
+/**
+ * Coroutine Context & Dispatchers
+ */
 
 fun main() {
-    demo03()
+    demo02()
 }
 
 /**
- * Dispatchers y hilos
+ * Dispatchers e hilos
  */
 fun demo01() = runBlocking {
-    launch { // context of the parent, main runBlocking coroutine
-        println("main runBlocking      : I'm working in thread ${Thread.currentThread().name}")
+    launch { // context del padre, main runBlocking coroutine
+        println("main runBlocking      : I'm working in thread ${Thread.currentThread().name}") // print main
     }
-    launch(Dispatchers.Unconfined) { // not confined -- will work with main thread
-        println("Unconfined            : I'm working in thread ${Thread.currentThread().name}")
+    launch(Dispatchers.Unconfined) { // not confined -- funcionara con el hilo principal
+        println("Unconfined            : I'm working in thread ${Thread.currentThread().name}") // print main
     }
-    launch(Dispatchers.Default) { // will get dispatched to DefaultDispatcher
-        println("Default               : I'm working in thread ${Thread.currentThread().name}")
+    launch(Dispatchers.Default) { // se enviará a DefaultDispatcher
+        println("Default               : I'm working in thread ${Thread.currentThread().name}") // print DefaultDispatcher-worker-1
     }
-    launch(newSingleThreadContext("MyOwnThread")) { // will get its own new thread
-        println("newSingleThreadContext: I'm working in thread ${Thread.currentThread().name}")
+    launch(newSingleThreadContext("MyOwnThread")) { // obtendrá su propio hilo nuevo
+        println("newSingleThreadContext: I'm working in thread ${Thread.currentThread().name}") // print MyOwnThread
     }
 }
 
