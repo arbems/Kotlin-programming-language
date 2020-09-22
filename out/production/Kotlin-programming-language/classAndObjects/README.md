@@ -17,11 +17,11 @@
     
 ## [Herencia](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/classAndObjects/inheritance)
 * Superclass `Any`
-* `open`
+* Heredar de una clase `open`
 * Sobrescribiendo métodos (`override`, `final override`)
 * Sobrescribiendo propiedades
-* Clase derivada y orden inicialización
-* Llamando a la implementación de la superclase (`super`)
+* Orden de inicialización de clases derivadas
+* Llamar a la implementación de la super clase (`super`)
 * Sobrescribiendo reglas
  
 ## Propiedades y campos
@@ -125,4 +125,4 @@
 
 ## Attribution
 
-This code was created by [arbems](https://github.com/arbems) in 2020.
+This code was created by [Developer Monkey](https://developermonkey.es) in 2020.
