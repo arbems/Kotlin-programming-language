@@ -35,12 +35,12 @@ fun main() {
             constructor(p1: Int, p2: String) : super(p1) { }
         }
 
-        class Derived2(p1: Int) : Base(p1) {
+        class Derived1(p1: Int) : Base(p1) {
             constructor(p1: Int, p2: String) : this(p1) { }
         }
 
         Derived(5, "five")
-        Derived2(9, "nine")
+        Derived1(9, "nine")
     }
 
     run {
@@ -48,7 +48,6 @@ fun main() {
 
         open class Base {
             open fun function1() { }
-
             fun function2() { }
         }
 
@@ -57,11 +56,11 @@ fun main() {
             // override fun function2() { }  Error! es final y no puede ser sobrescrito
         }
 
-        open class Derived2 : Base() {
+        open class Derived1 : Base() {
             final override fun function1() { }
         }
 
-        class Sample : Derived2() {
+        class Sample : Derived1() {
             // override fun function1() {}  Error! es final y no puede ser sobrescrito
         }
     }
@@ -77,14 +76,14 @@ fun main() {
             override var vertexCount = 4.also { println(it) }
         }
 
-        class Derived2(override var vertexCount: Int) : Base() {
+        class Derived1(override var vertexCount: Int) : Base() {
             init {
                 println(vertexCount)
             }
         }
 
         Derived()
-        Derived2(8)
+        Derived1(8)
     }
 
     run {
@@ -127,7 +126,7 @@ fun main() {
 
             val p2: String get() = super.p1
 
-            inner class Derived2 {
+            inner class Derived1 {
                 fun function2() { }
                 fun function3() {
                     super@Derived.function1()
@@ -138,7 +137,7 @@ fun main() {
         }
 
         Derived().function1()
-        Derived().Derived2().function3()
+        Derived().Derived1().function3()
     }
 
     run {
