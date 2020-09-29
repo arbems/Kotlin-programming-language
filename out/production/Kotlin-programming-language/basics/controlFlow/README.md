@@ -1,9 +1,12 @@
 # Programando con lenguaje Kotlin - Control de flujos
 
-#### Expresiones con If
+Este ejemplo muestra las siguientes características de **control de flujos** en Kotlin:
 
-#### Expresiones con When
+* Expresiones con **If**
+* Expresiones con **When**
+* Bucles con **for**
+* Bucles con **While**
 
-#### Bucles con for
+## Attribution
 
-#### Bucles con While
+This code was created by [Developer Monkey](https://developermonkey.es) in 2020.

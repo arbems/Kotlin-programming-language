@@ -1,7 +1,6 @@
 package basics.packages
-/**
- * Packages
- * */
+
+/** Packages */
 
 /** Por defecto, se importan varios paquetes en cada archivo Kotlin: */
 

@@ -1,29 +1,28 @@
 # Programando con lenguaje Kotlin - Básico
 
-#### [**Tipos básicos**](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/basicTypes)
+*  [Tipos básicos](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/basicTypes)
+    * Numbers
+    * Characters
+    * Booleans
+    * Arrays
+    * Strings
 
-* Numbers
-* Characters
-* Booleans
-* Arrays
-* Strings
+*  [Control de flujos](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/controlFlow)
 
-#### [**Control de flujos**](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/controlFlow)
+    * Expresiones con **If**
+    * Expresiones con **When**
+    * Bucles con **for**
+    * Bucles con **While**
 
-* Expresiones con **If**
-* Expresiones con **When**
-* Bucles con **for**
-* Bucles con **While**
+*  [Returns y saltos](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/returnsAndJumps)
 
-#### [**Returns y saltos**](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/returnsAndJumps)
-
-* Break
-* Continue
-* Returns
+    * Break
+    * Continue
+    * Returns
 
 
-#### [**Packages**](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/packages)
+*  [Packages](https://github.com/arbems/Kotlin-Programming-Language/tree/master/src/basics/packages)
 
-* Paquetes por defecto en cada archivo Kotlin
-* Declaración de paquete
-* Importar paquetes
+    * Packages por defecto en cada archivo Kotlin
+    * Declaración de Package
+    * Importar Packages

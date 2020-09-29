@@ -1,7 +1,11 @@
 # Programando con lenguaje Kotlin - Packages
 
-#### Packages por defecto en cada archivo Kotlin
+Este ejemplo muestra las siguientes características de **packages** en Kotlin:
 
-#### Declaración de Package
+* Packages por defecto en cada archivo Kotlin
+* Declaración de Package
+* Importar Packages
 
-#### Importar Packages
+## Attribution
+
+This code was created by [Developer Monkey](https://developermonkey.es) in 2020.

@@ -1,6 +1,6 @@
 # Programando con lenguaje Kotlin - Herencia
 
-Este ejemplo muestra las siguientes características de la herencia en Kotlin:
+Este ejemplo muestra las siguientes características de la **herencia** en Kotlin:
 
 * Superclass `Any`
 * Heredar de una clase `open`

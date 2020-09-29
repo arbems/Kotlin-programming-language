@@ -1,6 +1,6 @@
 # Programando con lenguaje Kotlin - Clases
 
-Código de ejemplos de clases en Kotlin
+Este ejemplo muestra las siguientes características de **clases** en Kotlin:
 
 * Miembros de clase
     * Constructores y bloques inicializadores 

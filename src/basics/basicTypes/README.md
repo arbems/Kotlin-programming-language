@@ -1,22 +1,24 @@
 # Programando con lenguaje Kotlin - Tipos básicos
 
-#### Numbers
-* Tipos numéricos
-* Guiones bajos en literales numéricos
-* Representación
-* Conversiones explícitas
-* Operaciones
-* Comparación de números
+Este ejemplo muestra las siguientes características de **tipos básicos** en Kotlin:
 
-#### Characters
+* Numbers
+    * Tipos numéricos
+    * Guiones bajos en literales numéricos
+    * Representación
+    * Conversiones explícitas
+    * Operaciones
+    * Comparación de números
+* Characters
+* Booleans
+* Arrays
+    * Array
+    * IntArray, ByteArray, ShortArray...
+* Strings
+    * String literals
+    * Raw string
+    * String templates
 
-#### Booleans
+## Attribution
 
-#### Arrays
-* Array
-* IntArray, ByteArray, ShortArray..
-
-#### Strings
-* String literals
-* Raw string
-* String templates
+This code was created by [Developer Monkey](https://developermonkey.es) in 2020.
