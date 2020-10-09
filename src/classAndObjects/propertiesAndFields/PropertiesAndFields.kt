@@ -1,5 +1,7 @@
 package classAndObjects.propertiesAndFields
 
+annotation class Inject
+
 /**
  * Propiedades y campos
  */
@@ -65,35 +67,30 @@ fun main() {
     }
 
     run {
+        println("--- lateinit ---")
+        class Sample {
+            //var str: String // error: property must be initialized
+            lateinit var p1: String
 
+            init {
+                //initializeProperty()
+
+                if (::p1.isInitialized) {
+                    println("$p1 is initialized")
+                }
+                else {
+                    println("is not initialized")
+                }
+            }
+
+            fun initializeProperty() {
+                p1 = "hello,"
+            }
+        }
+        val sample = Sample()
     }
 }
 
-annotation class Inject
-
 /**  Compile-Time Constants */
 const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
-
-/**
- * Propiedades y variables de inicialización tardía (Late-initialized)
- */
-// En el siguiente código básicamente la inicialización se da posteriormente. Habitualmente cuando una variable no es de un tipo que acepte null requiere ser inicializada en el constructor;
-// sin embargo, no siempre aplica esto como, por ejemplo, en situaciones donde la inicialización de las variables se da a través de la inyección de dependencias o en la función setup dentro de nuestras pruebas unitarias.
-// Para manejar este tipo de situaciones, sobretodo para evitar las verificaciones de valores nulls podemos marcar la propiedad con el modificador lateinit
-var adapter1: MyAdapter // error: property must be initialized
-lateinit var adapter: MyAdapter // adapter.isInitialized
-
-class MyAdapter() {}
-// Es bueno recalcar que la aplicación de lazy aplica para propiedades de tipo val (inmutables) y lateinit para propiedades de tipo var (mutables)
-// siempre que no tenga un setter o getter personalizado ni que sea un tipo primitivo.
-
-/**
- * Initialization by Lazy
- */
-// La inicialización de la variable adapter solo se realizará durante la primera vez en que se haga uso de la variable adapter.
-// Por definición lazy es una función que durante la primera invocación ejecuta el lambda que se le haya pasado y en posteriores invocaciones retornará el valor computado inicialmente.
-val adapter2: MyAdapter by lazy { initializeAdapter() }
-fun initializeAdapter(): MyAdapter {
-    return MyAdapter()
-}
 

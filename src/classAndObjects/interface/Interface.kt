@@ -1,102 +1,102 @@
 package classAndObjects.`interface`
-/**
- * Interfaces
- * */
+
+/** Interfaces */
 
 import javax.swing.text.Position
 
-fun main(args: Array<String>) {
-    val child: Child = Child()
-    child.bar()
-}
+fun main() {}
 
 /** Interface */
-// Las interfaces en Kotlin pueden contener declaraciones de métodos abstractos, así como implementaciones de métodos.
-// Lo que los hace diferentes de las clases abstractas es que las interfaces no pueden almacenar el estado.
-interface MyInterface {
-    fun bar()
-    fun foo() {
+interface Interface1 {
+    fun function1() // abstract
+    fun function2() {
         // optional body
     }
 }
-interface MyInterface2 {
-    fun cup()
+interface Interface2 {
+    fun function3()
 }
 
 /** Implementing Interfaces */
-// Una clase u objeto puede implementar una o más interfaces
-class Child : MyInterface, MyInterface2 {
-    override fun bar() {
+class Sample : Interface1 {
+    override fun function1() {
+        // body
+    }
+}
+class Sample2 : Interface1, Interface2 {
+    override fun function1() {
         // body
     }
 
-    override fun cup() {
+    override fun function3() {
         // body
     }
 }
 
 /** Properties in Interfaces */
-// Propiedades en interfaces
-// Puede declarar propiedades en las interfaces, pero deben ser abstractas o proporcionar implementaciones de acceso.
-interface MyInterface3 {
-    val prop: Int // abstract
+interface Interface3 {
+    val p1: Int // abstract
 
-    val propertyWithImplementation: String
-        get() = "example"
+    val p2: String
+        get() = "hello"
 
-    fun foo() {
-        print(prop)
+    fun function1() {
+        print(p1)
     }
 }
-class Child2 : MyInterface3 {
-    override val prop: Int = 29
+class Sample3 : Interface3 {
+    override val p1: Int = 10
 }
 
 /** Interfaces Inheritance */
-// Herencia de interfaces
-// Una interfaz puede derivarse de otras interfaces y, por lo tanto, ambas proporcionan implementaciones para sus miembros y declaran nuevas funciones y propiedades.
-// Naturalmente, las clases que implementan dicha interfaz solo son necesarias para definir las implementaciones que faltan
-interface Named {
-    val name: String
+interface Interface4 {
+    val p1: String
 }
 
-interface Person : Named {
-    val firstName: String
-    val lastName: String
+interface Interface5 : Interface4 {
+    val p2: String
+    val p3: String
 
-    override val name: String get() = "$firstName $lastName"
+    override val p1: String get() = "$p2 $p3"
 }
 
-data class Employee(
-        // 'name' no es requerido
-        override val firstName: String,
-        override val lastName: String,
-        val position: Position
-) : Person
+data class Sample4(
+        // 'p1' is not required
+        override val p2: String,
+        override val p3: String,
+        val p4: String
+) : Interface5
+
 
 /** Resolving overriding conflicts */
-// resolviendo conflictos
-interface A {
-    fun foo() { print("A") } // no es abstract, si la función no tiene cuerpo
-    fun bar() // es abstract
+interface Interface6 {
+    fun function1() { print("A") } // is not abstract, if the function has a body
+    fun function2() // is abstract
 }
 
-interface B {
-    fun foo() { print("B") }
-    fun bar() { print("bar") }
+interface Interface7 {
+    fun function1() { print("C") }
+    fun function2() { print("D") }
 }
 
-class C : A {
-    override fun bar() { print("bar") }
+class Sample5 : Interface6 {
+    override fun function2() { print("B") }
 }
 
-class D : A, B {
-    override fun foo() {
-        super<A>.foo()
-        super<B>.foo()
+class Sample6 : Interface6, Interface7 {
+
+    init {
+        super<Interface6>.function1()
+        super<Interface7>.function1()
+        super<Interface7>.function2()
     }
 
-    override fun bar() {
-        super<B>.bar()
+    override fun function1() {
+        super<Interface6>.function1()
+        super<Interface7>.function1()
+    }
+
+    override fun function2() {
+        super<Interface7>.function2()
     }
 }
